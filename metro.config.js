@@ -9,7 +9,7 @@ module.exports = (async () => {
             ...defaultConfig.transformer,
         },
         resolver: {
-            sourceExts: ['jsx', 'js', 'ts', 'tsx', 'cjs'],
+            ...defaultConfig.resolver,
         },
         server: {
             enhanceMiddleware: (middleware) => {
