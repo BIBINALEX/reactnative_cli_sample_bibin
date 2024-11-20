@@ -1,33 +1,49 @@
 import React from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import { View, Button, StyleSheet, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { FlatList } from 'react-native';
 
 const HomeScreen = () => {
     const navigation = useNavigation<any>();
-    const navigateToSearchPage = () => {
-        navigation.navigate('SearchPage');
+    const navigateToSearchPage = (route: string) => {
+        navigation.navigate(route);
     };
 
     return (
-        <View style={styles.container}>
-            {Array.from({ length: 5 }).map((_, index) => (
-                <Button
-                    key={index}
-                    title={`Button ${index + 1}`}
-                    onPress={navigateToSearchPage}
-                />
-            ))}
-        </View>
+        <FlatList
+            style={styles.container}
+            data={["Hello", "Search", "Contacts"]}
+            renderItem={({ item, index }) => (
+                <View style={styles.button}>
+                    <Button
+                        title={`Task ${index + 1} - ${item}`}
+                        onPress={() => {
+                            navigateToSearchPage(item);
+                        }}
+                    />
+                </View>
+            )}
+            ItemSeparatorComponent={() => <View style={styles.separator} />}
+            keyExtractor={(item, index) => index.toString()}
+        />
     );
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#00808030',
     },
+    button: {
+        backgroundColor: '#FFFFFF',
+        padding: 10,
+        fontWeight: 'bold',
+        fontSize: 20,
+    },
+    separator: {
+        height: 1,
+        backgroundColor: '#CCCCCC',
+    }
 });
 
 export default HomeScreen;

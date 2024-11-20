@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, FlatList, Text, SafeAreaView, Image, TouchableOpacity, Linking } from 'react-native';
 
-const ListPage = () => {
+const ContactListPage = () => {
 
     const data = [
         { id: '1', name: 'Miyah Myles', title: 'Data Entry Clerk', number: '1234567890', profile_image: 'https://randomuser.me/api/portraits/women/1.jpg' },
@@ -44,7 +44,7 @@ const ListPage = () => {
         </SafeAreaView>
     )
 };
-export default ListPage;
+export default ContactListPage;
 
 interface Contacts {
     id: string;
