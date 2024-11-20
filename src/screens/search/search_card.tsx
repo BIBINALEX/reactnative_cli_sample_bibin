@@ -26,7 +26,7 @@ const SearchCard = () => {
                 <View style={{ width: 5 }} />
                 <View>
                     <View style={[{ flexDirection: 'row', alignItems: 'center' }, styles.button]}>
-                        <Image source={require('../../assets/magnifying-glass.png')} style={{ width: 16, height: 16, marginRight: 10 }} />
+                        <Image source={require('../assets/magnifying-glass.png')} style={{ width: 16, height: 16, marginRight: 10 }} />
                         <Text style={styles.buttonText}>
                             Search
                         </Text>
